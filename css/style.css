@@ -69,7 +69,7 @@ nav ul li img {
 
 .hero-content {
     position: absolute;
-    top: 50%;
+    top: 50%; /* Adjust the position to move the content down */
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -80,8 +80,11 @@ nav ul li img {
     padding: 10px 20px;
     text-decoration: none;
     font-weight: bold;
-    border-radius: 5px;
+    border-radius: 50px;
+    margin-top: 10px; /* Sebelumnya 40px, tambahkan lebih banyak jarak */
+    display: inline-block;
 }
+
 
 .cta-button:hover {
     background-color: #575757;
