@@ -14,28 +14,38 @@
         <ul>
             <li style="margin-right: auto;"><img src="image/logobaju.png" alt="Logo"></li>
             <li><a href="index.html">Home</a></li>
-            <li><a href="#baju">Baju</a></li>
-            <li><a href="#celana">Celana</a></li>
+            <li><a href="#produk">Produk</a></li>
         </ul>
     </nav>
 
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-slideshow">
+            <img src="image/hero.jpg" alt="Hero Image" class="slide">
+            <img src="image/hero1.jpg" alt="Hero Image 1" class="slide">
+            <img src="image/hero2.jpg" alt="Hero Image 2" class="slide">
+        </div>
+        <div class="hero-content">
+            <h1>Welcome to Our Store</h1>
+            <p>Discover the latest trends in streetwear fashion</p>
+            <a href="#produk" class="cta-button">Shop Now</a>
+        </div>
+    </section>
+
     <!-- Product Sections -->
-    <section id="baju">
-        <h2>Baju</h2>
-        <img src="images/baju.jpg" alt="Baju">
-        <p>Deskripsi Baju</p>
-    </section>
-
-    <section id="kaos">
-        <h2>Kaos</h2>
-        <img src="images/kaos.jpg" alt="Kaos">
-        <p>Deskripsi Kaos</p>
-    </section>
-
-    <section id="celana">
-        <h2>Celana</h2>
-        <img src="images/celana.jpg" alt="Celana">
-        <p>Deskripsi Celana</p>
+    <section id="produk">
+        <h2>Produk</h2>
+        <!-- Display images from the images/baju and images/celana folders -->
+        <div class="product-gallery">
+            <img src="images/baju/baju1.jpg" alt="Baju 1">
+            <img src="images/baju/baju2.jpg" alt="Baju 2">
+            <img src="images/baju/baju3.jpg" alt="Baju 3">
+            <img src="images/celana/celana1.jpg" alt="Celana 1">
+            <img src="images/celana/celana2.jpg" alt="Celana 2">
+            <img src="images/celana/celana3.jpg" alt="Celana 3">
+            <!-- Add more images as needed -->
+        </div>
+        <p>Deskripsi Produk</p>
     </section>
 
     <!-- Footer -->
@@ -43,7 +53,26 @@
         <p>&copy; 2023 Your Company. All rights reserved.</p>
     </footer>
 
+    <!-- Back to Top Button -->
+    <button id="back-to-top" title="Back to top">&uarr;</button>
+
     <script src="js/utils.js"></script>
     <script src="js/script.js"></script>
+    <script>
+        // Slideshow script
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.hero-slideshow .slide');
+        const totalSlides = slides.length;
+
+        function showSlides() {
+            slides.forEach((slide, index) => {
+                slide.style.display = (index === slideIndex) ? 'block' : 'none';
+            });
+            slideIndex = (slideIndex + 1) % totalSlides;
+            setTimeout(showSlides, 1500); // Change image every 1.5 seconds
+        }
+
+        document.addEventListener('DOMContentLoaded', showSlides);
+    </script>
 </body>
 </html>
