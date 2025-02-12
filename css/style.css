@@ -1,3 +1,4 @@
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -9,6 +10,7 @@ header img {
     height: auto;
 }
 
+/* Navbar Styles */
 nav ul {
     list-style-type: none;
     padding: 0;
@@ -36,7 +38,8 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background-color: #575757;
+    background-color: white; /* Change hover effect to white */
+    color: black; /* Change text color to black */
 }
 
 nav ul li img {
@@ -44,22 +47,36 @@ nav ul li img {
     margin-top: -10px; /* Adjust the logo position to move it down by 10px */
 }
 
+/* Hero Section Styles */
 .hero {
-    position: relative;
-    text-align: center;
-    color: white;
+    width: 100vw;  /* Full width */
+    height: 100vh; /* Full height */
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevent horizontal scroll */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+}
+
+.hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .hero-slideshow {
     position: relative;
     width: 100%;
-    height: 50vh; /* Adjust the hero section image size */
+    height: 100vh; /* Increase the hero section image size */
     overflow: hidden;
 }
 
 .hero-slideshow .slide {
     width: 100%;
-    height: 50vh;
+    height: 100vh; /* Increase the hero section image size */
     object-fit: cover;
     position: absolute;
     top: 0;
@@ -72,6 +89,19 @@ nav ul li img {
     top: 50%; /* Adjust the position to move the content down */
     left: 50%;
     transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.hero-content h1 {
+    color: white;
+    font-weight: bold;
+    font-size: 2em; /* Increase the font size */
+}
+
+.hero-content p {
+    color: white; /* Ensure the text remains white */
+    font-weight: bold;
+    font-size: 1.5em; /* Increase the font size */
 }
 
 .cta-button {
@@ -81,19 +111,25 @@ nav ul li img {
     text-decoration: none;
     font-weight: bold;
     border-radius: 50px;
-    margin-top: 10px; /* Sebelumnya 40px, tambahkan lebih banyak jarak */
+    margin-top: 10px; /* Add more space above the button */
     display: inline-block;
 }
 
-
 .cta-button:hover {
-    background-color: #575757;
-    color: white;
+    background-color: white; /* Change hover effect to white */
+    color: black; /* Change text color to black */
 }
 
+/* Section Styles */
 section {
     padding: 20px;
     text-align: center;
+    
+}
+
+section.hero {
+    padding: 0;
+    
 }
 
 section img {
@@ -101,6 +137,7 @@ section img {
     height: auto;
 }
 
+/* Product Gallery Styles */
 .product-gallery {
     display: flex;
     flex-wrap: wrap;
@@ -113,6 +150,7 @@ section img {
     height: auto;
 }
 
+/* Footer Styles */
 footer {
     background-color: #FFD700;
     color: black;
@@ -124,6 +162,7 @@ footer {
     bottom: 0;
 }
 
+/* Back to Top Button Styles */
 #back-to-top {
     display: none;
     position: fixed;
@@ -142,4 +181,69 @@ footer {
 #back-to-top:hover {
     background-color: #575757;
     color: white;
+}
+
+/* Persuasive Section Styles */
+.persuasive-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 10%;
+    gap: 40px;
+}
+
+.persuasive-text {
+    text-align: center;
+    max-width: 500px;
+    font-size: 1.2em; /* Increase font size */
+    line-height: 1.5; /* Improve readability */
+    color: #333; /* Darker text color */
+    margin-bottom: 20px; /* Add space below text */
+}
+
+.persuasive-text h2 {
+    font-size: 2em; /* Increase heading size */
+    color: black; /* Change heading color to black */
+    margin-bottom: 10px; /* Add space below heading */
+}
+
+.persuasive-image img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+}
+
+/* Reverse for Celana (Image Left, Text Right) */
+.reverse {
+    flex-direction: row-reverse;
+}
+
+/* Collection Section Styles */
+.collection {
+    text-align: center;
+    padding: 50px 10%;
+}
+
+.collection h2 {
+    font-size: 2.5em; /* Increase heading size */
+    color: black; /* Change heading color to black */
+    margin-bottom: 20px; /* Add space below heading */
+}
+
+.gallery {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.gallery img {
+    width: 150px;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.1);
 }
