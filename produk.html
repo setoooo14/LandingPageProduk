@@ -1,38 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produk</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="image/logo.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produk</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="image/logo.ico" type="image/x-icon">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <ul>
-            <li style="margin-right: auto;"><img src="image/logobaju.png" alt="Logo"></li>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="produk.html">Produk</a></li>
-        </ul>
-    </nav>
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li style="margin-right: auto;"><img src="image/logobaju.png" alt="Logo"></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="produk.html">Produk</a></li>
+    </ul>
+  </nav>
 
-    <!-- Content -->
-    <section class="content">
-        <h1>Produk Kami</h1>
-        <p>Deskripsi produk akan ditampilkan di sini.</p>
-    </section>
+  <!-- Content -->
+  <section class="content">
+    <h1>Produk Kami</h1>
+    <div class="filter-sort">
+      <button onclick="filterProducts('all')">Semua</button>
+      <button onclick="filterProducts('baju')">Baju</button>
+      <button onclick="filterProducts('celana')">Celana</button>
+    </div>
+    <div class="product-grid" id="product-grid">
+      <!-- Gambar akan dimasukkan secara dinamis melalui JavaScript -->
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Your Company. All rights reserved.</p>
-    </footer>
+  <!-- Modal -->
+  <div id="product-modal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modal-img">
+    <div id="modal-caption"></div>
+  </div>
 
-    <!-- Back to Top Button -->
-    <button id="back-to-top" title="Back to top">&uarr;</button>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Your Company. All rights reserved.</p>
+  </footer>
 
-    <script src="js/utils.js"></script>
-    <script src="js/script.js"></script>
+  <!-- Back to Top Button -->
+  <button id="back-to-top" title="Back to top">&uarr;</button>
+
+  <script src="js/utils.js"></script>
+  <script src="js/script.js"></script>
+  <script>
+    // Fetch JSON data and populate product grid
+    fetch('images.json')
+      .then(response => response.json())
+      .then(data => {
+        const productGrid = document.getElementById('product-grid');
+
+        // Function to create product card
+        function createProductCard(product, category, index) {
+          const container = document.createElement('div');
+          container.classList.add('product-card');
+          container.setAttribute('data-category', category);
+
+          const img = document.createElement('img');
+          img.src = 'image/' + category + '/' + product.filename;
+          img.alt = category.charAt(0).toUpperCase() + category.slice(1) + " " + (index + 1);
+          img.loading = 'lazy';
+          img.onclick = () => openModal(img.src, product.price);
+          container.appendChild(img);
+
+          const price = document.createElement('p');
+          price.classList.add('product-price');
+          price.textContent = product.price;
+          container.appendChild(price);
+
+          productGrid.appendChild(container);
+        }
+
+        // Loop untuk kategori baju
+        data.baju.forEach((product, index) => {
+          createProductCard(product, 'baju', index);
+        });
+
+        // Loop untuk kategori celana
+        data.celana.forEach((product, index) => {
+          createProductCard(product, 'celana', index);
+        });
+      })
+      .catch(error => console.error('Error fetching images:', error));
+
+    // Filter products by category
+    function filterProducts(category) {
+      const cards = document.querySelectorAll('.product-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Open modal
+    function openModal(src, price) {
+      const modal = document.getElementById('product-modal');
+      const modalImg = document.getElementById('modal-img');
+      const caption = document.getElementById('modal-caption');
+
+      modal.style.display = 'block';
+      modalImg.src = src;
+      caption.textContent = price;
+    }
+
+    // Close modal
+    function closeModal() {
+      const modal = document.getElementById('product-modal');
+      modal.style.display = 'none';
+    }
+  </script>
 </body>
 </html>
