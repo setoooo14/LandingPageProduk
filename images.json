@@ -1,0 +1,26 @@
+{
+  "baju": [
+    {"filename": "baju.jpg", "price": "Rp155.000"},
+    {"filename": "baju1.jpg", "price": "Rp150.000"},
+    {"filename": "baju2.jpg", "price": "Rp175.000"},
+    {"filename": "baju3.jpg", "price": "Rp200.000"},
+    {"filename": "baju4.jpg", "price": "Rp225.000"},
+    {"filename": "baju5.jpg", "price": "Rp250.000"},
+    {"filename": "baju6.jpg", "price": "Rp275.000"},
+    {"filename": "baju7.jpg", "price": "Rp300.000"},
+    {"filename": "baju8.jpg", "price": "Rp325.000"},
+    {"filename": "baju9.jpg", "price": "Rp350.000"}
+  ],
+  "celana": [
+    {"filename": "celana.jpg", "price": "Rp160.000"},
+    {"filename": "celana1.jpg", "price": "Rp180.000"},
+    {"filename": "celana2.jpg", "price": "Rp200.000"},
+    {"filename": "celana3.jpg", "price": "Rp220.000"},
+    {"filename": "celana4.jpg", "price": "Rp240.000"},
+    {"filename": "celana5.jpg", "price": "Rp260.000"},
+    {"filename": "celana6.jpg", "price": "Rp280.000"},
+    {"filename": "celana7.jpg", "price": "Rp300.000"},
+    {"filename": "celana8.jpg", "price": "Rp320.000"},
+    {"filename": "celana9.jpg", "price": "Rp340.000"}
+  ]
+}
